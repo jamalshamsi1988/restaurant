@@ -1,7 +1,7 @@
 
 
 import Header from './components/layout/Header';
-
+import CarouselHeader from './components/carousels/CarouselHeader';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     < >
     <Header />
-
+    <CarouselHeader />
     </>
   );
 }
