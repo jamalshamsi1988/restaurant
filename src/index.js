@@ -17,7 +17,7 @@ const theme=createTheme({
   }
 })
 const client = new ApolloClient({
-  uri:"https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clg7ys4tq1l7801uk6s4m349v/master" ,
+  uri:process.env.REACT_APP_GRAPHCMS_URI ,
   cache : new InMemoryCache()
 });
 

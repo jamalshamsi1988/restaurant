@@ -1,14 +1,15 @@
 import { gql } from "@apollo/client";
 
-const GET_MENUS = gql`
-
+const GET_APPETIZERS= gql`
     query{
-        appetizers{
-                image {
+        iranianFoods{
+                image{
                 url
                 }
-  }
+                title
+                slug
+            }
     }
-
 `;
-export {GET_MENUS} ;
+
+export {GET_APPETIZERS} ;

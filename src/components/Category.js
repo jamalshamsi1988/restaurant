@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useQuery } from '@apollo/client';
+
 
 import { Typography,CardMedia, Card, CardHeader, Avatar, CardContent, CardActions,IconButton, Container} from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -7,8 +7,8 @@ import ShareIcon from '@mui/icons-material/Share';
 
 
 
-//Query
-import { GET_MENUS } from '../graphql/querys';
+
+
 
 import Food1 from "../photos/soup1.jpg";
 import Food2 from "../photos/category2.jpg";
@@ -44,11 +44,6 @@ const Category = () => {
         setFavorie(!favorite)
       }
 
-      const{loading , data , errors}=useQuery(GET_MENUS);
-      if(loading) return <h1>hi...</h1>
-      if(errors) return <h4>Error ...</h4>
-      
-    console.log({data});
     
   return (
 <Container maxWidth="lg" spacing={3} padding={3} sx={{display:"flex", paddingTop:"55px"}} >
