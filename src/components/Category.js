@@ -54,10 +54,10 @@ const Category = () => {
 <Container maxWidth="lg" spacing={3} padding={3} sx={{display:"flex", paddingTop:"55px"}} >
     {
       Cards.map((card) => 
-    <Card key={card.id}  sx={{ maxWidth: 345 ,marginLeft:5 , boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 }} xs={12} sm={6} md={4}  >
+    <Card key={card.id}  sx={{ maxWidth: 345 ,marginLeft:5 , boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 }}   >
       <CardHeader
         avatar={
-          <Avatar src={card.logo}/>
+          <Avatar src={card.logo} sm={6} md={4} />
         }
         action={
           <IconButton aria-label="settings">
@@ -73,7 +73,7 @@ const Category = () => {
         alt="Food"
       />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary"  >
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the mussels,
           if you like.
