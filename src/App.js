@@ -9,6 +9,7 @@ import FoodCard from './components/cards/FoodCard';
 
 
 
+
 function App() {
 
   return (
@@ -18,7 +19,7 @@ function App() {
     <Category/>
     <MenuHeader />
     <FoodCard/>
-    
+  
     </>
   );
 }
