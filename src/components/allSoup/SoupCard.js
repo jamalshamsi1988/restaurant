@@ -20,24 +20,27 @@ const SoupCard = () => {
        
 
   return (
-    <Grid container spacing={4} sx={{marginTop:"10px" , marginLeft:"10px"}}>
+    <Card container  spacing={4} sx={{marginTop:"10px" , marginLeft:"10px" , display:"flex" , flexWrap:"wrap" }}>
         {
            data.allSoups.map((item)=> 
-                <Grid item xs={8} flexDirection="columen" key={item.id}>
-                <Card sx={{ maxWidth: 345 }} >
+                <Grid item  xs={12} sm={6} md={4}  key={item.id}>
+                <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}}  >
                    <CardMedia 
                    component="image"
-                   sx={{ height: 100 }}
+                  sx={{height:194}}
                      image={item.image.url}
-                     title="green iguana"
+                     title={item.slug}
                    />
                     <CardContent>
                      <Typography gutterBottom variant="h5" component="div">
                       {item.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                   {item.description}
+                   
+
+                    <Typography variant="body2" color="text.secondary" >
+                   {  item.description}
                      </Typography>
+                   
                    </CardContent>
               <CardActions>
                     
@@ -52,7 +55,7 @@ const SoupCard = () => {
             )
             
         }
-       </Grid>
+       </Card>
   )
 }
 
