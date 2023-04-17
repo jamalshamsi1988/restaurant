@@ -13,7 +13,7 @@ const GET_ALLSOUPS= gql`
 
         query{
             allSoups {
-                    description
+                    price
                     image {
                     url
                     }

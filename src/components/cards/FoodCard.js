@@ -20,11 +20,11 @@ const FoodCard = () => {
     if(errors) return <h3>Error ...</h3>
 
   return (
-    <Grid container  spacing={4} sx={{marginTop:"10px" , marginLeft:"10px" ,display:"flex" }} >
-       <Grid item xs={8} >
+    <Grid container sx={{marginTop:"10px" , marginLeft:"10px" ,display:"flex" }} >
+       <Grid item xs={10} >
           <SoupCard />
           </Grid>
-  <Grid item xs={4}  >
+  <Grid item xs={2}  sx={{border:"1px solid silver" , borderRadius:4 , boxShadow:"rgba(0,0,0,0.1) 0 4px 12px"}}>
   {
     data.appetizers.map((item)=>
     <Typography component="h3" variant='h4' key={item.id} sx={{display:"flex" , flexWrap:"wrap" }} >{item.title}</Typography>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
-import { Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import { Box, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import MinimizeIcon from '@mui/icons-material/Minimize';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 
 import { GET_ALLSOUPS } from '../../graphql/querys';
@@ -20,10 +20,10 @@ const SoupCard = () => {
        
 
   return (
-    <Card container  spacing={4} sx={{marginTop:"10px" , marginLeft:"10px" , display:"flex" , flexWrap:"wrap" }}>
+    <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
         {
            data.allSoups.map((item)=> 
-                <Grid item  xs={12} sm={6} md={4}  key={item.id}>
+                <Grid item  xs={12} sm={8} md={3}  key={item.id}>
                 <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}}  >
                    <CardMedia 
                    component="image"
@@ -31,31 +31,36 @@ const SoupCard = () => {
                      image={item.image.url}
                      title={item.slug}
                    />
-                    <CardContent>
-                     <Typography gutterBottom variant="h5" component="div">
-                      {item.title}
-                    </Typography>
-                   
+                    <Box sx={{backgroundColor:"#E9E9E9", alignItems:"center", textAlign:"center" }} >
+                          <Typography gutterBottom variant="h5" component="div" color="#122C32" fontWeight={600}>
+                            {item.title}
+                          </Typography>
+                   </Box>
 
-                    <Typography variant="body2" color="text.secondary" >
-                   {  item.description}
+                   <Box sx={{display:"flex" , justifyContent:"space-between" }}>
+
+                      <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} marginLeft={3}>  
+                            <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} />
+                            <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} />
+                      </Box>
+
+                      <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >
+
+                    <AddShoppingCartIcon sx={{ color:"#343A54" ,marginRight:17}} />
+                    <Typography variant="p" color="text.secondary" fontWeight="bold" marginRight={0.8} >
+                            {item.price}
                      </Typography>
-                   
-                   </CardContent>
-              <CardActions>
-                    
-                     <AddIcon/>
-                    <AddShoppingCartIcon />
-                    <MinimizeIcon/>
+                      </Box>
+                   </Box>
+               
               
-                    </CardActions>
                  </Card> 
                 </Grid>
                
             )
             
         }
-       </Card>
+       </Grid>
   )
 }
 
