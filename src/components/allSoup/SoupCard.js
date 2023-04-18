@@ -23,8 +23,8 @@ const SoupCard = () => {
     <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
         {
            data.allSoups.map((item)=> 
-                <Grid item  xs={12} sm={8} md={3}  key={item.id}>
-                <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}}  >
+                <Grid item  xs={12}  md={4}  key={item.id}>
+                <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}} >
                    <CardMedia 
                    component="image"
                   sx={{height:194}}
