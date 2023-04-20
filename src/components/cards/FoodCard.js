@@ -17,13 +17,13 @@ const FoodCard = () => {
     if(errors) return <h3>Error ...</h3>
 
   return (
-    <Grid container sx={{marginTop:"10px" , marginLeft:"10px" ,display:"flex" }} >
+    <Grid container sx={{marginTop:"10px" ,display:"flex" , flexDirection:"column" }}  style={{position:"relative"}} >
        
   {
-    data.mainCourses.map((item)=><Grid item>
+    data.mainCourses.map((item)=><Grid item  mt={4} marginLeft={4}>
 
-    <Typography component="h3" variant='h5' key={item.id} sx={{display:"flex" , flexWrap:"wrap" }} >{item.title}</Typography>
-    <CardMedia  component="image"  image={item.image.url} sx={{height:70 , border:"1px solid silver" ,borderRadius:2}}  title={item.slug} />
+    <Typography component="h3" variant='h5' key={item.id} sx={{display:"flex" , flexWrap:"wrap" }} style={{position:"absolute" , color:"white"}}>{item.title}</Typography>
+    <CardMedia  component="image"  image={item.image.url} sx={{height:100 ,width:160, border:"1px solid silver" ,borderRadius:2}}  title={item.slug} />
     </Grid>
     ) 
   } 

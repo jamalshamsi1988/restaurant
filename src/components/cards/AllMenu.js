@@ -1,11 +1,12 @@
 import React from 'react';
-import { Box, CardMedia, Container, Grid, Typography } from '@mui/material';
+import {  Container, Grid, Typography } from '@mui/material';
 import {  GET_APPETIZERS } from '../../graphql/querys';
 import SoupCard from '../allSoup/SoupCard';
 import { useQuery } from '@apollo/client';
 import FoodCard from './FoodCard';
 import Appetizers from '../allSoup/Appetizers';
-import DrinksCard from '../drink/DrinksCard';
+import { Link } from 'react-router-dom';
+
 
 
 const AllMenu = () => {
@@ -20,18 +21,20 @@ const AllMenu = () => {
 
   return (
     <Container maxWidth="lg">
-      <Grid container>
+      <Grid container marginLeft={3}>
         <Grid item xs={12} md={9} mt={4}>
           <Typography component="h3" variant='h5'>
             Restaurant Menu
           </Typography>
+
+          {/* All Food and Soup and Salad cards  */}
           <SoupCard />
-          <DrinksCard />
+    
         </Grid>
-        <Grid item xs={12} md={3} mt={4} sx={{boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 }}>
+        <Grid item xs={12} md={3} mt={4} >
 
         <Appetizers />
-        <FoodCard />
+       <FoodCard />
         </Grid>
 
       </Grid>

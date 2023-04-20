@@ -1,18 +1,23 @@
 import React from 'react'
-import CardMedia from '@mui/material/CardMedia';
+import { Box } from '@mui/material';
+
 
 import Image from '../photos/01.jpg';
-import { Box } from '@mui/material';
 
 
 const MenuHeader = () => {
   return (
-    <Box style={{position:"relative"}} mt={10}>
-        <CardMedia component="img" image={Image}  sx={{width:"100%" , height:"50vh" ,backgroundRepeat:"no-repeat",
+    <Box style={{position:"relative"}} mt={10} sx={{backgroundImage:`url(${Image})`,backgroundRepeat:"no-repeat",width:"100%" , height:"50vh",
     backgroundColor:"black",
+    backgroundSize:"cover",
     backgroundPosition:"center",
-    backgroundAttachment:"fixed"}} />
-        <div style={{position:"absolute" , top:90 , left:"45%" , color:"white" ,fontWeight:700, fontSize:"1.2rem"}}>
+    display:"flex",
+    backgroundAttachment:"fixed",
+    justifyContent:"center",
+    
+    }}>
+        
+        <div style={{position:"absolute" , top:90 , color:"white" ,fontWeight:700, fontSize:"1.2rem" , alignItems:"center"}}>
                 Restaurant Menu
         </div>
            
