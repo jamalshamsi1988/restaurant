@@ -4,6 +4,7 @@ import { ApolloClient , InMemoryCache , ApolloProvider } from '@apollo/client';
 
 import App from './App';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
 
 const theme=createTheme({
   palette :{
@@ -26,7 +27,10 @@ root.render(
   <ApolloProvider client={client}>
     <ThemeProvider theme={theme}>
         <CssBaseline />
-    <App />
+        <BrowserRouter>
+        <App />
+        </BrowserRouter>
+   
     </ThemeProvider>
   </ApolloProvider>
 );

@@ -9,8 +9,10 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 //Logo
 import Logo from '../../photos/logo.webp';
+import { Link } from 'react-router-dom';
 
-const pages=['Home Pagr' , 'Online Order' , 'Gallery' , 'About Us'];
+
+const pages=['Home Page' , 'Online Order' , 'Gallery' , 'About Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -110,10 +112,12 @@ const Header = () => {
       >
         {pages.map((page) => (
           <MenuItem key={page} onClick={handleCloseNavMenu}>
-            <Typography textAlign="center">{page}</Typography>
+          <Link to={`/${page.slug}`}>
+          <Typography textAlign="center">{page}</Typography>
+          </Link> 
           </MenuItem>
         ))}
-         
+          console.log(page.id);
       </Menu>
       </Box>
       <Typography

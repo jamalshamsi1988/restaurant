@@ -55,4 +55,47 @@ const GET_DRINKS=gql`
 
 `;
 
-export {GET_APPETIZERS, GET_ALLSOUPS, GET_MAINCOURSES , GET_DRINKS} ;
+const GET_SALAD_MENU=gql`
+        query{
+            salads{
+    id
+    image {
+      url
+    }
+    slug
+    title
+    price
+  }
+        }
+`;
+
+
+const GET_IRANIANFOODS_MENU=gql`
+        query{
+            iranianFoods{
+    id
+    image {
+      url
+    }
+    slug
+    title
+    price
+  }
+        }
+`;
+
+const GET_FASTFOODS_MENU=gql`
+        query{
+            fastFoods{
+    id
+    image {
+      url
+    }
+    slug
+    title
+    price
+  }
+        }
+`;
+
+export {GET_APPETIZERS, GET_ALLSOUPS, GET_MAINCOURSES , GET_DRINKS,GET_SALAD_MENU , GET_IRANIANFOODS_MENU ,GET_FASTFOODS_MENU} ;

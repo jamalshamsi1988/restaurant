@@ -1,11 +1,15 @@
+import {  Route, Routes } from 'react-router-dom';
 
 
 import Header from './components/layout/Header';
 import CarouselHeader from './components/carousels/CarouselHeader';
 import Category from './components/Category';
 import MenuHeader from './components/MenuHeader';
-import { BrowserRouter, Routes } from 'react-router-dom';
-import AllMenu from './components/cards/AllMenu';
+import AllMenu from './components/AllMenu';
+import AboutUs from './components/layout/AboutUs';
+import OnlineOrder from './components/layout/OnlineOrder';
+import Gallery from './components/layout/Gallery';
+import Footer from './components/shared/Footer';
 
 
 
@@ -17,14 +21,17 @@ function App() {
     <>
     <Header />
     <CarouselHeader />
- 
-   
     <Category/>
     <MenuHeader />
-    {/* <FoodCard/> */}
-    <AllMenu />
+   <AllMenu />
   
-  
+  <Routes>
+    <Route path="/aboutus/:id" element={<AboutUs />} />
+    <Route path="/gallery" element={<Gallery />} />
+    <Route path="/onlineorder" element={<OnlineOrder />} />
+    {/* <Route path="/allmenu" element={ <AllMenu />} /> */}
+  </Routes>
+  <Footer />
     </>
   );
 }
