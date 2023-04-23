@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { Container, Grid, Typography, CardMedia } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import {  GET_APPETIZERS } from '../graphql/querys';
 import SoupCard from './appetizer/SoupCard';
 import SaladCard from './appetizer/SaladCard'
@@ -27,9 +27,7 @@ const AllMenu = () => {
   return (
     <Container maxWidth="lg">
       <Grid container marginLeft={3}>
-        <Grid item xs={12} md={9} mt={4}>
-          <CardMedia component="image"  />
-
+        <Grid item xs={12} md={9} mt={8}>
           {/* All Food and Soup and Salad cards  */}
 
           {/* <SoupCard /> */}

@@ -112,12 +112,16 @@ const Header = () => {
       >
         {pages.map((page) => (
           <MenuItem key={page} onClick={handleCloseNavMenu}>
-          <Link to={`/${page.slug}`}>
-          <Typography textAlign="center">{page}</Typography>
-          </Link> 
+          
+          <Typography textAlign="center">
+            
+            <Link style={{textDecoration:"none" , color:"#ffff"}} to={`/${page}`}>{page}</Link> 
+            
+            </Typography>
+          
           </MenuItem>
         ))}
-          console.log(page.id);
+         
       </Menu>
       </Box>
       <Typography
@@ -158,7 +162,8 @@ const Header = () => {
           onClick={handleCloseNavMenu}
           sx={{ my: 2, color: 'white', display: 'block' }}
         >
-          {page}
+          <Link style={{textDecoration:"none" , color:"#ffff"}} to={`/${page}`}> {page}</Link>
+         
         </Button>
       ))}
      <Toolbar>
