@@ -12,7 +12,7 @@ import Logo from '../../photos/logo.webp';
 import { Link } from 'react-router-dom';
 
 
-const pages=['Home Page' , 'Online Order' , 'Gallery' , 'About Us'];
+const pages=['HomePage' , 'OnlineOrder' , 'Gallery' , 'AboutUs'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 

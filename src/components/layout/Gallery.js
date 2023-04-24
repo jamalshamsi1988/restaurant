@@ -7,6 +7,7 @@ import gallery_pic2 from '../../photos/Gallery/02.jpg';
 import gallery_pic3 from '../../photos/Gallery/03.jpg';
 import gallery_pic4 from '../../photos/Gallery/04.jpg';
 import gallery_pic5 from '../../photos/Gallery/05.jpg';
+import Header from './Header';
 
 const itemData = [
   {
@@ -30,7 +31,9 @@ const itemData = [
 
 const Gallery = () => {
   return (
-    <ImageList sx={{  height: 1000 }} variant="masonry"  cols={3} gap={8} >
+    <>
+    <Header />
+    <ImageList sx={{  height:1000 }} variant="masonry"  cols={3} gap={8} >
     {itemData.map((item) => (
       <Card key={item.img}>
         <img
@@ -38,8 +41,10 @@ const Gallery = () => {
           alt="gallery"
         />
       </Card>
+      
     ))}
   </ImageList>
+  </>
 );
 }
 
