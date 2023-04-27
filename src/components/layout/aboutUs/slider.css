@@ -1,19 +1,17 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-  }
-  
-   :root {
+
+ :root{
     --heights: 70vh;
     --widths: 100%;
+   
     
-  } 
+  }  
   
   .slider-container {
-    height: var(--heights);
-    width: var(--widths);
+    height: 70vh;
+    width: 70%;
     position: relative;
-    margin: auto;
+    margin-top: 70px;
+    margin-left: 16rem;
     overflow: hidden;
   }
   
@@ -29,6 +27,7 @@
     height: var(--heights);
     width: var(--widths);
     position: relative;
+    
   }
   
   .slide-image {

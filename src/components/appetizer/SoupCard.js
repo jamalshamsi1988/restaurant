@@ -1,6 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
-import { Box, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material'
+import { Box, Card, CardMedia, Grid, Typography } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveIcon from '@mui/icons-material/Remove';
