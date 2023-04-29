@@ -14,7 +14,6 @@ const MenuHeader = () => {
     display:"flex",
     backgroundAttachment:"fixed",
     justifyContent:"center",
-    
     }}>
         
         <div style={{position:"absolute" , top:90 , color:"white" ,fontWeight:700, fontSize:"1.2rem" , alignItems:"center"}}>
