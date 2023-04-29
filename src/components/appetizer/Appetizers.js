@@ -4,11 +4,12 @@ import { GET_APPETIZERS } from '../../graphql/querys';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import SoupCard from './SoupCard';
-;
+
+
 
 const Appetizers = () => {
     const{loading,data,errors}=useQuery( GET_APPETIZERS);
-  
+
     
   console.log({data});
 
@@ -26,7 +27,11 @@ const Appetizers = () => {
               </Typography>
               
              
-              <CardMedia component="image" image={item.image.url} sx={{height:100 ,width:160, border:"1px solid silver" ,borderRadius:2}}  title={item.slug}/>
+              <CardMedia component="image" image={item.image.url} 
+              sx={{height:100 ,width:160, border:"1px solid silver" ,borderRadius:2}}
+                title={item.slug}
+                
+                />
              </Link>
               </Grid>
               )
