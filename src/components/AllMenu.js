@@ -27,21 +27,20 @@ const AllMenu = () => {
   return (
     <Container maxWidth="lg">
       <Grid container marginLeft={3}>
+      <Grid item xs={12} md={3} mt={4} >
+        <Appetizers  />
+        <MainCourseCard />
+        </Grid>
+
         <Grid item xs={12} md={9} mt={8}>
           {/* All Food and Soup and Salad cards  */}
 
-          {/* <SoupCard /> */}
-          {/* <SaladCard /> */}
+          <SoupCard />
+          <SaladCard />
           <IranianFood />
-          {/* <FastFoodCard /> */}
+          <FastFoodCard />
         </Grid>
-        <Grid item xs={12} md={3} mt={4} >
-
-        <Appetizers  />
-       <MainCourseCard />
         </Grid>
-
-      </Grid>
       
     </Container>
   )

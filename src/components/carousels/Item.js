@@ -5,7 +5,7 @@ function Item({item})
     return (
      
         <Paper>
-        <img src={item.image} alt="FoodPhoto" style={{width:"100%" , height:"70vh"}} />
+        <img src={item.image} alt="FoodPhoto" style={{width:"100%" , height:"75vh"}} />
         </Paper>
        
     )

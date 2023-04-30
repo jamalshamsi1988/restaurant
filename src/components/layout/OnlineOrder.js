@@ -4,13 +4,16 @@ import Header from './Header';
 import Footer from './../shared/Footer';
 
 
+
 const OnlineOrder = () => {
   return (
-    <div>
+    < >
       <Header/>
+     
      <AllMenu/>
+
      <Footer/>
-    </div>
+    </>
   )
 }
 
