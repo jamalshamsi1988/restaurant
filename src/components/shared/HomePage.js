@@ -14,6 +14,7 @@ const HomePage = () => {
         <CarouselHeader />
         <Category/>
         <MenuHeader />
+        
       <AllMenu />
     <Footer />
     </>

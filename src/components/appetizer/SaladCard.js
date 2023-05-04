@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery } from '@apollo/client';
 import { GET_SALAD_MENU } from '../../graphql/querys';
-import { Grid, Card, Box, Typography, CardMedia } from '@mui/material';
+import { Grid, Card, Box, Typography, CardMedia, Dialog } from '@mui/material';
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 import  RemoveIcon  from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
 const SaladCard = () => {
-  
+ 
   const{loading,data,errors}=useQuery(GET_SALAD_MENU);
     
   console.log({data});
@@ -20,12 +20,15 @@ const SaladCard = () => {
        data.salads.map((item)=> 
             <Grid item  xs={12}  md={4}  key={item.id}>
             <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}} >
+
+
                <CardMedia 
                component="image"
               sx={{height:194}}
                  image={item.image.url}
                  title={item.slug}
                />
+               
                 <Box sx={{backgroundColor:"#E9E9E9", alignItems:"center", textAlign:"center" }} >
                       <Typography gutterBottom variant="h5" component="div" color="#122C32" fontWeight={600}>
                         {item.title}
@@ -60,3 +63,4 @@ const SaladCard = () => {
 }
 
 export default SaladCard
+
