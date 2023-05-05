@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
 import { GET_FASTFOODS_MENU } from '../../graphql/querys';
-import { Grid, Card, Box, Typography, CardMedia } from '@mui/material';
+import { Grid, Card, Box, Typography, CardMedia, Button } from '@mui/material';
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 import  RemoveIcon  from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -18,7 +18,7 @@ const FastFoodCard = () => {
     <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
     {
        data.fastFoods.map((item)=> 
-            <Grid item  xs={12}  md={4}  key={item.id}>
+            <Grid item  xs={6}  md={4}  key={item.id}>
             <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}} >
                <CardMedia 
                component="image"
@@ -34,9 +34,9 @@ const FastFoodCard = () => {
 
                <Box sx={{display:"flex" , justifyContent:"space-between" }}>
 
-                  <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} marginLeft={3}>  
-                        <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} />
-                        <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} />
+                  <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}}>  
+                   <Button>   <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></Button> 
+                   <Button>   <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </Button> 
                   </Box>
 
                   <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >

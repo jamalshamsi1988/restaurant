@@ -1,6 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
-import { Box, Card, CardMedia, Grid, Typography } from '@mui/material'
+import { Box, Button, Card, CardMedia, Grid, Typography } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -39,9 +39,9 @@ const SoupCard = () => {
 
                    <Box sx={{display:"flex" , justifyContent:"space-between" }}>
 
-                      <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} marginLeft={3}>  
-                            <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} />
-                            <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} />
+                      <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
+                            <Button><AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></Button>
+                            <Button><RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /></Button>
                       </Box>
 
                       <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >

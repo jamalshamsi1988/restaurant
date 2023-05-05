@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery } from '@apollo/client';
 import { GET_SALAD_MENU } from '../../graphql/querys';
-import { Grid, Card, Box, Typography, CardMedia, Dialog } from '@mui/material';
+import { Grid, Card, Box, Typography, CardMedia, Dialog, Button } from '@mui/material';
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 import  RemoveIcon  from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -37,9 +37,9 @@ const SaladCard = () => {
 
                <Box sx={{display:"flex" , justifyContent:"space-between" }}>
 
-                  <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} marginLeft={3}>  
-                        <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} />
-                        <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} />
+                  <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
+                      <Button> <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /> </Button> 
+                       <Button> <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </Button>
                   </Box>
 
                   <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >

@@ -4,22 +4,23 @@ import { Button, Container, Grid } from '@mui/material';
 import {  GET_ALLSOUPS, GET_APPETIZERS, GET_FASTFOODS_MENU, GET_IRANIANFOODS_MENU, GET_SALAD_MENU } from '../graphql/querys';
 import SoupCard from './appetizer/SoupCard';
 import SaladCard from './appetizer/SaladCard'
-import MainCourseCard from './mainCourse/MainCourseCard';
-import Appetizers from './appetizer/Appetizers';
 import IranianFood from './mainCourse/IranianFood';
 import FastFoodCard from './mainCourse/FastFoodCard';
-import NewAppetizers from './NewAppetizers';
-import { useParams } from 'react-router-dom';
+
+import soup from '../assest/photos/soup1.jpg'
+import salad from '../assest/photos/frut-salad.jpg'
+import iranianFood from '../assest/photos/Iranian-dish.jpg'
+import fastFood from '../assest/photos/newberger.jpg'
 
 
 
 
 
 const AllMenu = () => {
-const{slug}=useParams();
+
   const{loading,data,errors}=useQuery( GET_APPETIZERS);
   
-  const[active,setActive]=useState("allSoup");
+  const[active,setActive]=useState("iranianFood");
 
   console.log({data});
 
@@ -29,16 +30,57 @@ const{slug}=useParams();
   return (
     <Container maxWidth="lg">
       <Grid container marginLeft={3}>
-      <Grid item xs={12} md={3} mt={4} >
-     
-     <Button onClick={()=> setActive("allSoup")}>soup</Button>
-     <Button onClick={()=> setActive("saladMenu")}>salad</Button>
-     <Button onClick={()=> setActive("iranianFood")}>iranianFood</Button>
-     <Button onClick={()=> setActive("fastFood")}>fastFood</Button>
+      <Grid item   md={3} mt={8} sx={{display:"flex" ,flexDirection:"column"}} >
+        
+<Grid item xs={3}>
+
+     <Button  onClick={()=> setActive("allSoup")} 
+    sx={{backgroundImage:`url(${soup})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
+    backgroundColor:"black",
+    backgroundSize:"cover",
+    backgroundPosition:"center",
+    display:"flex",
+    justifyContent:"center",
+    color:"#ffffff",fontWeight:"700"}}> soup  </Button>
+</Grid>
+
+<Grid item xs={3} >
+
+     <Button onClick={()=> setActive("saladMenu")}
+    sx={{backgroundImage:`url(${salad})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
+    backgroundColor:"black",
+    backgroundSize:"cover",
+    backgroundPosition:"center",
+    display:"flex",
+    justifyContent:"center",color:"#ffffff",fontWeight:"700"}}>salad</Button>
+</Grid>
+
+<Grid item xs={3}>
+
+     <Button onClick={()=> setActive("iranianFood")} 
+   sx={{backgroundImage:`url(${iranianFood})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
+    backgroundColor:"black",
+    backgroundSize:"cover",
+    backgroundPosition:"center",
+    display:"flex",
+    justifyContent:"center",color:"#ffffff",fontWeight:"700"}}>iranianFood</Button>
+</Grid>
+
+<Grid item xs={3}>
+
+     <Button onClick={()=> setActive("fastFood")}
+    sx={{backgroundImage:`url(${fastFood})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
+    backgroundColor:"black",
+    backgroundSize:"cover",
+    backgroundPosition:"center",
+    display:"flex",
+    justifyContent:"center",color:"#ffffff",fontWeight:"700"}}>fastFood</Button>
+</Grid>
+
      
         </Grid>
 
-        <Grid item xs={12} md={9} mt={8}>
+        <Grid item xs={12} md={9} mt={7}>
                {/* All Food and Soup and Salad cards  */}
       {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} cardIndex={data.id}/>}
       {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} cardIndex={data.id}/>}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
 import {GET_IRANIANFOODS_MENU} from '../../graphql/querys';
-import { Grid, Card, Box, Typography, CardMedia } from '@mui/material';
+import { Grid, Card, Box, Typography, CardMedia, Button } from '@mui/material';
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 import  RemoveIcon  from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -33,15 +33,15 @@ const IranianFood = () => {
   
                  <Box sx={{display:"flex" , justifyContent:"space-between" }}>
   
-                    <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} marginLeft={3}>  
-                          <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} />
-                          <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} />
+                    <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
+                       <Button>  <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></Button> 
+                       <Button>   <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </Button> 
                     </Box>
   
                     <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >
   
                   <AddShoppingCartIcon sx={{ color:"#343A54" ,marginRight:17}} />
-                  <Typography variant="p" color="text.secondary" fontWeight="bold" marginRight={0.8} >
+                  <Typography variant="p" color="text.secondary" fontWeight="bold"  >
                           {item.price}
                    </Typography>
                     </Box>

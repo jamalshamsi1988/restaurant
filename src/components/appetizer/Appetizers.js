@@ -21,8 +21,6 @@ const Appetizers = ({info}) => {
         <Grid container sx={{display:"flex" , flexDirection:"column"}} style={{position:"relative"}} marginTop={3} >
            {
               data.appetizers.map((item)=> <Grid item xs={12} md={5} mt={4} marginLeft={1} >
-            
-             {/* <Link to={`/appetizers/${item.slug}}`} > */}
               <Typography component="h3" variant='h5' key={item.id} mb={3}  style={{position:"absolute" , color:"white",alignItems:"center"}} >
                 {item.title}
               </Typography>
@@ -31,7 +29,6 @@ const Appetizers = ({info}) => {
               sx={{height:100 ,width:160, border:"1px solid silver" ,borderRadius:2}}
                 title={item.slug}
                 />  
-             {/* </Link> */}
               </Grid>
               )
            }
