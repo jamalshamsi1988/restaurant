@@ -2,7 +2,7 @@ import React from 'react'
 import { Box } from '@mui/material';
 
 
-import Image from '../photos/01.jpg';
+import Image from '../assest/photos/01.jpg';
 
 
 const MenuHeader = () => {

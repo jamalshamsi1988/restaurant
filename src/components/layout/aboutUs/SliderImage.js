@@ -1,6 +1,6 @@
-import First from '../../../photos/aboutus/01.jpg'
-import Second from '../../../photos/aboutus/02.jpg'
-import Third from '../../../photos/aboutus/03.jpg'
+import First from '../../../assest/photos/aboutus/01.jpg'
+import Second from '../../../assest/photos/aboutus/02.jpg'
+import Third from '../../../assest/photos/aboutus/03.jpg'
 
 export default   [
     {

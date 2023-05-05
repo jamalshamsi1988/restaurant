@@ -2,11 +2,11 @@ import React from 'react'
 import ImageList from '@mui/material/ImageList';
 import { Card } from '@mui/material';
 
-import gallery_pic1 from '../../photos/Gallery/01.jpg';
-import gallery_pic2 from '../../photos/Gallery/02.jpg';
-import gallery_pic3 from '../../photos/Gallery/03.jpg';
-import gallery_pic4 from '../../photos/Gallery/04.jpg';
-import gallery_pic5 from '../../photos/Gallery/05.jpg';
+import gallery_pic1 from '../../assest/photos/Gallery/01.jpg';
+import gallery_pic2 from '../../assest/photos/Gallery/02.jpg';
+import gallery_pic3 from '../../assest/photos/Gallery/03.jpg';
+import gallery_pic4 from '../../assest/photos/Gallery/04.jpg';
+import gallery_pic5 from '../../assest/photos/Gallery/05.jpg';
 import Header from './Header';
 import Footer from './../shared/Footer';
 

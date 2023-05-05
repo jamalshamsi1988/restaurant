@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {  CardMedia, Container, Grid, Typography } from '@mui/material'
 import { GET_APPETIZERS } from '../../graphql/querys';
 import { useQuery } from '@apollo/client';
@@ -18,7 +18,7 @@ const Appetizers = ({info}) => {
       if(errors) return <h3>Error ...</h3>
   return (
     <Container maxWidth="lg">
-        <Grid container sx={{display:"flex" , flexDirection:"column"}} style={{position:"relative"}} marginTop={3} onClick={()=> setActive(info)}>
+        <Grid container sx={{display:"flex" , flexDirection:"column"}} style={{position:"relative"}} marginTop={3} >
            {
               data.appetizers.map((item)=> <Grid item xs={12} md={5} mt={4} marginLeft={1} >
             

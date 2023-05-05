@@ -10,10 +10,10 @@ import ShareIcon from '@mui/icons-material/Share';
 
 
 
-import Food1 from "../photos/soup1.jpg";
-import Food2 from "../photos/category2.jpg";
-import Food3 from "../photos/category3.jpg";
-import logo from "../photos/logo.webp"
+import Food1 from "../assest/photos/soup1.jpg";
+import Food2 from "../assest/photos/category2.jpg";
+import Food3 from "../assest/photos/category3.jpg";
+import logo from "../assest/photos/logo.webp"
 
 const Cards = [
   {   

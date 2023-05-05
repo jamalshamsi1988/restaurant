@@ -8,7 +8,7 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 //Logo
-import Logo from '../../photos/logo.webp';
+import Logo from '../../assest/photos/logo.webp';
 import { Link } from 'react-router-dom';
 
 

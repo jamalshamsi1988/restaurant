@@ -1,9 +1,9 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
 
-import Image1 from '../../photos/Header (1).jpg'
-import Image2 from '../../photos/Header (2).jpg'
-import Image3 from '../../photos/Header (3).jpg'
+import Image1 from '../../assest/photos/Header (1).jpg'
+import Image2 from '../../assest/photos/Header (2).jpg'
+import Image3 from '../../assest/photos/Header (3).jpg'
 import Item from '../carousels/Item';
 
 

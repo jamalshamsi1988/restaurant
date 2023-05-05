@@ -23,6 +23,7 @@ const GET_ALLSOUPS= gql`
                     }
                     title
                     slug
+                    id
                 }
         }
 
