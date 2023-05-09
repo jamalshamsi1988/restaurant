@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { Button, Container, Grid } from '@mui/material';
-import {  GET_ALLSOUPS, GET_APPETIZERS, GET_FASTFOODS_MENU, GET_IRANIANFOODS_MENU, GET_SALAD_MENU } from '../graphql/querys';
+import {  GET_ALLSOUPS, GET_APPETIZERS, GET_FASTFOODS_MENU, GET_IRANIANFOODS_MENU, GET_MAINCOURSES, GET_SALAD_MENU } from '../graphql/querys';
 import SoupCard from './appetizer/SoupCard';
 import SaladCard from './appetizer/SaladCard'
 import IranianFood from './mainCourse/IranianFood';
@@ -11,6 +11,9 @@ import soup from '../assest/photos/soup1.jpg'
 import salad from '../assest/photos/frut-salad.jpg'
 import iranianFood from '../assest/photos/Iranian-dish.jpg'
 import fastFood from '../assest/photos/newberger.jpg'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from './../redux/product/productAction';
+
 
 
 
@@ -18,8 +21,14 @@ import fastFood from '../assest/photos/newberger.jpg'
 
 const AllMenu = () => {
 
-  const{loading,data,errors}=useQuery( GET_APPETIZERS);
-  
+  const dispatch=useDispatch();
+  const productState=useSelector(state => state.productsState);
+ useEffect(()=>{
+ if(!productState.products.length) dispatch(fetchProducts());
+ },[])
+
+  const{loading,data,errors}=useQuery( GET_MAINCOURSES);
+
   const[active,setActive]=useState("iranianFood");
 
   console.log({data});
@@ -81,13 +90,23 @@ const AllMenu = () => {
         </Grid>
 
         <Grid item xs={12} md={9} mt={7}>
-               {/* All Food and Soup and Salad cards  */}
+      
+           {/* All Food and Soup and Salad cards  */}
+           {/*
       {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} cardIndex={data.id}/>}
       {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} cardIndex={data.id}/>}
-      {active === "iranianFood" && <IranianFood data={GET_IRANIANFOODS_MENU} cardIndex={data.id}/>}
-      {active === "fastFood" && <FastFoodCard data={GET_FASTFOODS_MENU} cardIndex={data.id}/>}
+       {active === "iranianFood" && <IranianFood data={GET_IRANIANFOODS_MENU} cardIndex={data.id}/>} 
+      {active === "fastFood" && <FastFoodCard data={GET_FASTFOODS_MENU} cardIndex={data.id}/>} */}
      
-         
+
+     {
+      active === "iranianFood" &&
+       data.iranianFoods.map(product => <IranianFood 
+        cardIndex={data.id}
+        key={product.id}
+        data={GET_IRANIANFOODS_MENU}
+      />)
+     }
         </Grid>
         </Grid>
       

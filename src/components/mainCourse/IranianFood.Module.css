@@ -1,0 +1,29 @@
+.buttonContainer button{
+    border: none;
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    height: 30px;
+    width: 120px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 4px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-left: 5px;
+}
+.smallButton{
+    width: 30px !important;
+    font-size: 1.6rem !important;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.counter{
+    display: inline-block;
+    width: 20px;
+    color: #1a73e8;
+    font-weight: 700;
+    margin-left: 8px;
+    font-size: 1.2rem;
+  }

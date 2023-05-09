@@ -1,12 +1,27 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
+import { useSelector,useDispatch } from 'react-redux';
 import {GET_IRANIANFOODS_MENU} from '../../graphql/querys';
 import { Grid, Card, Box, Typography, CardMedia, Button } from '@mui/material';
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 import  RemoveIcon  from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
+import trashIcon from '../../assest/Icon/trash.svg'
+
+import styles from '../mainCourse/IranianFood.Module.css';
+import {isInCart,quantityCount} from '../../helper/functions';
+
+//Action
+import {addItem,removeItem,increase,decrease} from '../../redux/cart/cartAction'
+
+
 const IranianFood = () => {
+
+ 
+  const dispatch=useDispatch();
+  const state=useSelector(state => state.cartState)
+
     const{loading,data,errors}=useQuery(GET_IRANIANFOODS_MENU);
     
     console.log({data});
@@ -15,22 +30,24 @@ const IranianFood = () => {
         if(errors) return <h3>Error ...</h3>
     return (
       <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
-      {
-         data.iranianFoods.map((item)=> 
-              <Grid item  xs={12}  md={4}  key={item.id}>
+      {/* {
+         data.iranianFoods.map((item)=>  */}
+              <Grid item  xs={12}  md={4}  >
               <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}} >
                  <CardMedia 
                  component="image"
                 sx={{height:194}}
-                   image={item.image.url}
-                   title={item.slug}
+                   image={data.iranianFoods.image.url}
+                   title={data.iranianFoods.slug}
                  />
                   <Box sx={{backgroundColor:"#E9E9E9", alignItems:"center", textAlign:"center" }} >
                         <Typography gutterBottom variant="h5" component="div" color="#122C32" fontWeight={600}>
-                          {item.title}
+                          {data.iranianFoods.title}
                         </Typography>
                  </Box>
-  
+
+
+
                  <Box sx={{display:"flex" , justifyContent:"space-between" }}>
   
                     <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
@@ -42,18 +59,32 @@ const IranianFood = () => {
   
                   <AddShoppingCartIcon sx={{ color:"#343A54" ,marginRight:17}} />
                   <Typography variant="p" color="text.secondary" fontWeight="bold"  >
-                          {item.price}
+                          {data.iranianFoods.price}
                    </Typography>
-                    </Box>
+                    </Box> 
                  </Box>
              
             
                </Card> 
               </Grid>
              
-          )
           
-      }
+          
+      {/* )} */}
+       <div className={styles.buttonContainer}>
+          {
+              quantityCount(state , GET_IRANIANFOODS_MENU.id) ===1  && <button className={styles.smallButton} onClick={()=>dispatch(removeItem(GET_IRANIANFOODS_MENU))}><img src={trashIcon} alt="trash"/></button>
+            }
+             {quantityCount(state , GET_IRANIANFOODS_MENU.id) > 1 && <button className={styles.smallButton} onClick={()=> dispatch(decrease(GET_IRANIANFOODS_MENU))}> <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </button>} 
+             {quantityCount(state, GET_IRANIANFOODS_MENU.id) > 0 && <span className={styles.counter}>{quantityCount(state, GET_IRANIANFOODS_MENU.id)}</span>}
+       {
+        isInCart(state ,GET_IRANIANFOODS_MENU.id) ? <button className={styles.smallButton} onClick={()=> dispatch(increase(GET_IRANIANFOODS_MENU))}><AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></button>
+        : <button onClick={()=> dispatch(addItem(GET_IRANIANFOODS_MENU))}>Add To Cart</button>
+       }
+
+        </div>
+
+
      </Grid>
     )
   }

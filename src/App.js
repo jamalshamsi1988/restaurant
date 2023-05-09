@@ -1,4 +1,5 @@
 import {  Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import AboutUs from './components/layout/aboutUs/AboutUs';
 import OnlineOrder from './components/layout/OnlineOrder';
@@ -6,6 +7,7 @@ import Gallery from './components/layout/Gallery';
 import HomePage from './components/shared/HomePage';
 import SoupCard from './components/appetizer/SoupCard';
 import SaladCard from './components/appetizer/SaladCard';
+import store from '../src/redux/store';
 
 
 
@@ -14,7 +16,8 @@ import SaladCard from './components/appetizer/SaladCard';
 function App() {
 
   return (
-   
+   <Provider store={store}>
+
   <Routes>
     <Route path="/" element={<HomePage />} />
     <Route path="/AboutUs" element={<AboutUs />} />
@@ -24,6 +27,7 @@ function App() {
     <Route path="/appetizers/:slug" element={ <SaladCard/>} />
   </Routes>
 
+  </Provider>
     
   );
 }
