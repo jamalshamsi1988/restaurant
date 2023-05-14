@@ -17,8 +17,6 @@ import { fetchProducts } from './../redux/product/productAction';
 
 
 
-
-
 const AllMenu = () => {
 
   const dispatch=useDispatch();
@@ -92,21 +90,24 @@ const AllMenu = () => {
         <Grid item xs={12} md={9} mt={7}>
       
            {/* All Food and Soup and Salad cards  */}
-           {/*
-      {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} cardIndex={data.id}/>}
-      {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} cardIndex={data.id}/>}
-       {active === "iranianFood" && <IranianFood data={GET_IRANIANFOODS_MENU} cardIndex={data.id}/>} 
-      {active === "fastFood" && <FastFoodCard data={GET_FASTFOODS_MENU} cardIndex={data.id}/>} */}
-     
-
-     {
+           
+      {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} />}
+      {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} />}
+      {active === "fastFood" && <FastFoodCard data={GET_FASTFOODS_MENU} />}
+    
+       {active === "iranianFood" && <IranianFood data={GET_IRANIANFOODS_MENU} />} 
+{/* {
+  
       active === "iranianFood" &&
-       data.iranianFoods.map(product => <IranianFood 
-        cardIndex={data.id}
+    
+       data.iranianFoods.map((product) => <IranianFood 
         key={product.id}
-        data={GET_IRANIANFOODS_MENU}
-      />)
-     }
+        data={GET_IRANIANFOODS_MENU} 
+      />
+     
+      
+      )
+     }  */}
         </Grid>
         </Grid>
       

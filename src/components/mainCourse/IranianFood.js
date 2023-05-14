@@ -16,20 +16,23 @@ import {isInCart,quantityCount} from '../../helper/functions';
 import {addItem,removeItem,increase,decrease} from '../../redux/cart/cartAction'
 
 
-const IranianFood = () => {
 
+const IranianFood = () => {
+  
  
   const dispatch=useDispatch();
   const state=useSelector(state => state.cartState)
 
     const{loading,data,errors}=useQuery(GET_IRANIANFOODS_MENU);
-    
+   
     console.log({data});
   
         if(loading) return  <h3>Loading ...</h3>
         if(errors) return <h3>Error ...</h3>
     return (
       <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
+
+
       {/* {
          data.iranianFoods.map((item)=>  */}
               <Grid item  xs={12}  md={4}  >
@@ -37,8 +40,8 @@ const IranianFood = () => {
                  <CardMedia 
                  component="image"
                 sx={{height:194}}
-                   image={data.iranianFoods.image.url}
-                   title={data.iranianFoods.slug}
+                   image={data.iranianFoods[0].image.url}
+                   title={data.iranianFoods.title}
                  />
                   <Box sx={{backgroundColor:"#E9E9E9", alignItems:"center", textAlign:"center" }} >
                         <Typography gutterBottom variant="h5" component="div" color="#122C32" fontWeight={600}>
@@ -50,11 +53,23 @@ const IranianFood = () => {
 
                  <Box sx={{display:"flex" , justifyContent:"space-between" }}>
   
-                    <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
+                    {/* <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
                        <Button>  <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></Button> 
                        <Button>   <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </Button> 
                     </Box>
-  
+   */}
+     <div className={styles.buttonContainer}>
+          {
+              quantityCount(state , GET_IRANIANFOODS_MENU.id) ===1  && <button className={styles.smallButton} onClick={()=>dispatch(removeItem(GET_IRANIANFOODS_MENU))}><img src={trashIcon} alt="trash"/></button>
+            }
+             {quantityCount(state , GET_IRANIANFOODS_MENU.id) > 1 && <button className={styles.smallButton} onClick={()=> dispatch(decrease(GET_IRANIANFOODS_MENU))}> <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </button>} 
+             {quantityCount(state, GET_IRANIANFOODS_MENU.id) > 0 && <span className={styles.counter}>{quantityCount(state, GET_IRANIANFOODS_MENU.id)}</span>}
+       {
+        isInCart(state ,GET_IRANIANFOODS_MENU.id) ? <button className={styles.smallButton} onClick={()=> dispatch(increase(GET_IRANIANFOODS_MENU))}><AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></button>
+        : <button onClick={()=> dispatch(addItem(GET_IRANIANFOODS_MENU))}>Add To Cart</button>
+       }
+
+        </div>
                     <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >
   
                   <AddShoppingCartIcon sx={{ color:"#343A54" ,marginRight:17}} />
@@ -70,19 +85,8 @@ const IranianFood = () => {
              
           
           
-      {/* )} */}
-       <div className={styles.buttonContainer}>
-          {
-              quantityCount(state , GET_IRANIANFOODS_MENU.id) ===1  && <button className={styles.smallButton} onClick={()=>dispatch(removeItem(GET_IRANIANFOODS_MENU))}><img src={trashIcon} alt="trash"/></button>
-            }
-             {quantityCount(state , GET_IRANIANFOODS_MENU.id) > 1 && <button className={styles.smallButton} onClick={()=> dispatch(decrease(GET_IRANIANFOODS_MENU))}> <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </button>} 
-             {quantityCount(state, GET_IRANIANFOODS_MENU.id) > 0 && <span className={styles.counter}>{quantityCount(state, GET_IRANIANFOODS_MENU.id)}</span>}
-       {
-        isInCart(state ,GET_IRANIANFOODS_MENU.id) ? <button className={styles.smallButton} onClick={()=> dispatch(increase(GET_IRANIANFOODS_MENU))}><AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></button>
-        : <button onClick={()=> dispatch(addItem(GET_IRANIANFOODS_MENU))}>Add To Cart</button>
-       }
-
-        </div>
+       {/* )}  */}
+      
 
 
      </Grid>
