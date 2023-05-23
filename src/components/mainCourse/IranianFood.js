@@ -14,6 +14,8 @@ import {isInCart,quantityCount} from '../../helper/functions';
 
 //Action
 import {addItem,removeItem,increase,decrease} from '../../redux/cart/cartAction'
+import { AddReaction } from '@mui/icons-material';
+import AddRemoveFunction from '../shared/Add-Remove-Function';
 
 
 
@@ -29,7 +31,7 @@ const IranianFood = () => {
     
     if(loading) return  <h3>Loading ...</h3>
     if(errors) return <h3>Error ...</h3>
-    const {iranianFoods:{title,image,id,slug,price}}=data;
+  
     return (
       <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
 
@@ -52,27 +54,12 @@ const IranianFood = () => {
 
 
 
-                 <Box sx={{display:"flex" , justifyContent:"space-between" }} className={styles.buttonContainer}>
+                 <Box sx={{display:"flex" , justifyContent:"space-between" }}>
   
-                    {/* <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
-                       <Button>  <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></Button> 
-                       <Button>   <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </Button> 
-                    </Box>
-   */}
-      {
-              quantityCount(state, GET_IRANIANFOODS_MENU.id) ===1  && <button className={styles.smallButton} onClick={()=>dispatch(removeItem(GET_IRANIANFOODS_MENU))}><img src={trashIcon} alt="trash"/></button>
-            }
-             {quantityCount(state,  GET_IRANIANFOODS_MENU.id) > 1 && <button className={styles.smallButton} onClick={()=> dispatch(decrease(GET_IRANIANFOODS_MENU))}> <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </button>} 
-             {quantityCount(state,  GET_IRANIANFOODS_MENU.id) > 0 && <span className={styles.counter}>{quantityCount(state, GET_IRANIANFOODS_MENU.id)}</span>}
-       {
-        isInCart(state, GET_IRANIANFOODS_MENU.id) ? <button className={styles.smallButton} onClick={()=> dispatch(increase(GET_IRANIANFOODS_MENU))}><AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /></button>
-        : <button onClick={()=> dispatch(addItem(GET_IRANIANFOODS_MENU))}>Add To Cart</button>
-       }
       
+                    <AddRemoveFunction />
 
                     <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >
-  
-                  <AddShoppingCartIcon sx={{ color:"#343A54" ,marginRight:17}} />
                   <Typography variant="p" color="text.secondary" fontWeight="bold"  >
                           {item.price}
                    </Typography>

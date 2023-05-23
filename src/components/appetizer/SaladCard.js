@@ -5,6 +5,7 @@ import { Grid, Card, Box, Typography, CardMedia, Dialog, Button } from '@mui/mat
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 import  RemoveIcon  from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import AddRemoveFunction from '../shared/Add-Remove-Function';
 
 const SaladCard = () => {
  
@@ -37,14 +38,11 @@ const SaladCard = () => {
 
                <Box sx={{display:"flex" , justifyContent:"space-between" }}>
 
-                  <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >  
-                      <Button> <AddIcon sx={{backgroundColor:"#343A54" , color:"#ffff" , marginBottom:2}} /> </Button> 
-                       <Button> <RemoveIcon sx={{backgroundColor:"#343A54" , color:"#ffff" }} /> </Button>
-                  </Box>
+                  <AddRemoveFunction />
 
                   <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >
 
-                <AddShoppingCartIcon sx={{ color:"#343A54" ,marginRight:17}} />
+                
                 <Typography variant="p" color="text.secondary" fontWeight="bold" marginRight={0.8} >
                         {item.price}
                  </Typography>

@@ -110,10 +110,7 @@ const AllMenu = () => {
       {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} />}
       {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} />}
 
-      {active === "fastFood" &&  productState.products.map(item => <FastFoodCard 
-                CardMedia={item.image.url} title={item.title}  slug={item.slug} Typography={item.price}  key={item.id}
-              
-             />)}
+      {active === "fastFood" && <FastFoodCard /> }
     
        {active === "iranianFood" && <IranianFood data={GET_IRANIANFOODS_MENU} />} 
 {/* {
