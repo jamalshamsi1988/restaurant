@@ -14,21 +14,26 @@ const FastFoodCard = () => {
 
       if(loading) return  <h3>Loading ...</h3>
       if(errors) return <h3>Error ...</h3>
+      
+     const{fastFoods:{title,slug,image,price}}=data;
+
   return (
     <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
-    {
-       data.fastFoods.map((item)=> 
-            <Grid item  xs={6}  md={4}  key={item.id}>
+
+    {/* {
+       data.fastFoods.map((item)=>  */}
+
+            <Grid item  xs={6}  md={4}  >
             <Card sx={{ boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 , margin:"10px"}} >
                <CardMedia 
                component="image"
               sx={{height:194}}
-                 image={item.image.url}
-                 title={item.slug}
+                 image={image.url}
+                 title={slug}
                />
                 <Box sx={{backgroundColor:"#E9E9E9", alignItems:"center", textAlign:"center" }} >
                       <Typography gutterBottom variant="h5" component="div" color="#122C32" fontWeight={600}>
-                        {item.title}
+                        {title}
                       </Typography>
                </Box>
 
@@ -43,7 +48,7 @@ const FastFoodCard = () => {
 
                 <AddShoppingCartIcon sx={{ color:"#343A54" ,marginRight:17}} />
                 <Typography variant="p" color="text.secondary" fontWeight="bold" marginRight={0.8} >
-                        {item.price}
+                        {price}
                  </Typography>
                   </Box>
                </Box>
@@ -52,9 +57,8 @@ const FastFoodCard = () => {
              </Card> 
             </Grid>
            
-        )
-        
-    }
+         {/* )} */}
+
    </Grid>
   )
 }

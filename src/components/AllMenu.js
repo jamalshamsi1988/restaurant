@@ -1,6 +1,6 @@
 import React, {  useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { Button, Container, Grid } from '@mui/material';
+import { Box, Button, Card, CardMedia, Container, Grid, Typography } from '@mui/material';
 import {  GET_ALLSOUPS, GET_APPETIZERS, GET_FASTFOODS_MENU, GET_IRANIANFOODS_MENU, GET_MAINCOURSES, GET_SALAD_MENU } from '../graphql/querys';
 import SoupCard from './appetizer/SoupCard';
 import SaladCard from './appetizer/SaladCard'
@@ -13,7 +13,9 @@ import iranianFood from '../assest/photos/Iranian-dish.jpg'
 import fastFood from '../assest/photos/newberger.jpg'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from './../redux/product/productAction';
-
+import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
+import  RemoveIcon  from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 
 
 
@@ -25,7 +27,7 @@ const AllMenu = () => {
  if(!productState.products.length) dispatch(fetchProducts());
  },[])
 
-  const{loading,data,errors}=useQuery( GET_MAINCOURSES);
+  const{loading,data,errors}=useQuery(GET_FASTFOODS_MENU);
 
   const[active,setActive]=useState("iranianFood");
 
@@ -33,13 +35,24 @@ const AllMenu = () => {
 
       if(loading) return  <h3>Loading ...</h3>
       if(errors) return <h3>Error ...</h3>
-
+     
   return (
     <Container maxWidth="lg">
       <Grid container marginLeft={3}>
       <Grid item   md={3} mt={8} sx={{display:"flex" ,flexDirection:"column"}} >
         
-<Grid item xs={3}>
+ <Grid item xs={3}>
+
+{/* <div>
+            {
+              productState.products.map(item => <FastFoodCard 
+                CardMedia={item.image.url} title={item.title}  slug={item.slug} Typography={item.price}  key={item.id}
+              
+             />)
+            }
+          </div>  */}
+
+
 
      <Button  onClick={()=> setActive("allSoup")} 
     sx={{backgroundImage:`url(${soup})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
@@ -82,18 +95,25 @@ const AllMenu = () => {
     backgroundPosition:"center",
     display:"flex",
     justifyContent:"center",color:"#ffffff",fontWeight:"700"}}>fastFood</Button>
-</Grid>
+</Grid> 
 
      
         </Grid>
 
         <Grid item xs={12} md={9} mt={7}>
+
+         
+
       
            {/* All Food and Soup and Salad cards  */}
            
       {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} />}
       {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} />}
-      {active === "fastFood" && <FastFoodCard data={GET_FASTFOODS_MENU} />}
+
+      {active === "fastFood" &&  productState.products.map(item => <FastFoodCard 
+                CardMedia={item.image.url} title={item.title}  slug={item.slug} Typography={item.price}  key={item.id}
+              
+             />)}
     
        {active === "iranianFood" && <IranianFood data={GET_IRANIANFOODS_MENU} />} 
 {/* {
@@ -108,6 +128,7 @@ const AllMenu = () => {
       
       )
      }  */}
+      
         </Grid>
         </Grid>
       

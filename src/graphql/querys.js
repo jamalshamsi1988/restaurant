@@ -4,11 +4,11 @@ const GET_APPETIZERS= gql`
     query{
         appetizers {
     id
+    slug
+    title
     image {
       url
     }
-    slug
-    title
   }
 }
 `;
@@ -17,13 +17,13 @@ const GET_ALLSOUPS= gql`
 
         query{
             allSoups {
+                    id
+                    title
+                    slug
                     price
                     image {
                     url
                     }
-                    title
-                    slug
-                    id
                 }
         }
 
@@ -33,11 +33,11 @@ const GET_MAINCOURSES=gql`
         query{
             mainCourses {
     id
+    slug
+    title
     image {
       url
     }
-    slug
-    title
   }
         }
 `;
@@ -46,12 +46,12 @@ const GET_DRINKS=gql`
         query{
             drinks {
     id
-    image {
-      url
-    }
     slug
     title
   }
+    image {
+      url
+    }
         }
 
 `;
@@ -60,12 +60,12 @@ const GET_SALAD_MENU=gql`
         query{
             salads{
     id
-    image {
-      url
-    }
     slug
     title
     price
+    image {
+      url
+    }
   }
         }
 `;
@@ -75,12 +75,12 @@ const GET_IRANIANFOODS_MENU=gql`
         query{
             iranianFoods{
     id
-    image {
-      url
-    }
     slug
     title
     price
+    image{
+      url
+    }
   }
         }
 `;
@@ -89,12 +89,12 @@ const GET_FASTFOODS_MENU=gql`
         query{
             fastFoods{
     id
-    image {
-      url
-    }
     slug
     title
     price
+    image {
+      url
+    }
   }
         }
 `;
