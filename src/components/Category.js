@@ -52,7 +52,7 @@ const Category = () => {
     <Card key={card.id}  sx={{ maxWidth: 345 ,marginLeft:5 , boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 }}   >
       <CardHeader
         avatar={
-          <Avatar src={card.logo} sm={8} md={4} />
+          <Avatar src={card.logo} sm={4} md={4} />
         }
         action={
           <IconButton aria-label="settings">

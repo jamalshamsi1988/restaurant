@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_SALAD_MENU } from '../../graphql/querys';
 import { Grid, Card, Box, Typography, CardMedia, Dialog, Button } from '@mui/material';
