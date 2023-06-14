@@ -1,0 +1,7 @@
+@media (min-width :768 ){
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+}

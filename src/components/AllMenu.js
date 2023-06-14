@@ -17,7 +17,7 @@ import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 import  RemoveIcon  from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
-
+import styles from './AllMenu.module.css';
 
 const AllMenu = () => {
 
@@ -37,23 +37,11 @@ const AllMenu = () => {
       if(errors) return <h3>Error ...</h3>
      
   return (
-    <Container maxWidth="lg">
-      <Grid container marginLeft={3}>
-      <Grid item   md={3} mt={8} sx={{display:"flex" ,flexDirection:"column"}} >
+    <Container maxWidth="lg" >
+      <Grid container marginLeft={3}   >
+      <Grid item className={styles.gridContainer} md={3} mt={8} sx={{display:"flex" ,flexDirection:"column"}} >
         
  <Grid item xs={3}>
-
-{/* <div>
-            {
-              productState.products.map(item => <FastFoodCard 
-                CardMedia={item.image.url} title={item.title}  slug={item.slug} Typography={item.price}  key={item.id}
-              
-             />)
-            }
-          </div>  */}
-
-
-
      <Button  onClick={()=> setActive("allSoup")} 
     sx={{backgroundImage:`url(${soup})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
     backgroundColor:"black",

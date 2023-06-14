@@ -6,6 +6,7 @@ import { Grid, Card, Box, Typography, CardMedia, Button } from '@mui/material';
 import Cards from '../shared/Add-Remove-Function';
 import AddRemoveFunction from '../shared/Add-Remove-Function';
 
+import styles from './FastFood.module.css';
 
 
 
@@ -24,7 +25,7 @@ const FastFoodCard = () => {
      const{fastFoods:{title,slug,image,price}}=data;
 
   return (
-    <Grid container  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
+    <Grid container   sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
 
 
     {
