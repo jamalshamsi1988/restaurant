@@ -1,7 +1,7 @@
 import React, {  useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { Box, Button, Card, CardMedia, Container, Grid, Typography } from '@mui/material';
-import {  GET_ALLSOUPS, GET_APPETIZERS, GET_FASTFOODS_MENU, GET_IRANIANFOODS_MENU, GET_MAINCOURSES, GET_SALAD_MENU } from '../graphql/querys';
+import { Box, Button,  Container, Grid } from '@mui/material';
+import {  GET_ALLSOUPS,  GET_FASTFOODS_MENU, GET_IRANIANFOODS_MENU, GET_SALAD_MENU } from '../graphql/querys';
 import SoupCard from './appetizer/SoupCard';
 import SaladCard from './appetizer/SaladCard'
 import IranianFood from './mainCourse/IranianFood';
@@ -11,21 +11,11 @@ import soup from '../assest/photos/soup1.jpg'
 import salad from '../assest/photos/frut-salad.jpg'
 import iranianFood from '../assest/photos/Iranian-dish.jpg'
 import fastFood from '../assest/photos/newberger.jpg'
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from './../redux/product/productAction';
-import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
-import  RemoveIcon  from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
+
 
 import styles from './AllMenu.module.css';
 
 const AllMenu = () => {
-
-  const dispatch=useDispatch();
-  const productState=useSelector(state => state.productsState);
- useEffect(()=>{
- if(!productState.products.length) dispatch(fetchProducts());
- },[])
 
   const{loading,data,errors}=useQuery(GET_FASTFOODS_MENU);
 

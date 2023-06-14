@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Badge from '@mui/material/Badge';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
 
 
+
 export default function AddRemoveFunction() {
   const [count, setCount] = useState(0);
 
-
-
-
   return (
+ 
     <Box
       sx={{
         color: 'action.active',
         display: 'flex',
         flexDirection:'column',
+        justifyContent:'space-around'
+        ,
         '& > *': {
           marginBottom: 2,
         },
@@ -60,5 +60,6 @@ export default function AddRemoveFunction() {
       </div>
         
     </Box>
+
   );
 }

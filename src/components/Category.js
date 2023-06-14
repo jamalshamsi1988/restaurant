@@ -46,13 +46,13 @@ const Category = () => {
 
     
   return (
-<Container maxWidth="lg" spacing={3} padding={3} sx={{display:"flex", paddingTop:"55px"}} xs={12} md={9} mt={4}>
+<Container maxWidth="lg" spacing={3} padding={3} margin={3} sx={{display:"flex", paddingTop:"55px",flexGrow:"wrap",alignItems:"center"}} xs={12} md={8} mt={4}>
     {
       Cards.map((card) => 
     <Card key={card.id}  sx={{ maxWidth: 345 ,marginLeft:5 , boxShadow:"rgba(0,0,0,0.1) 0 4px 12px" , borderRadius:4 }}   >
       <CardHeader
         avatar={
-          <Avatar src={card.logo} sm={4} md={4} />
+          <Avatar src={card.logo} sm={4} md={8} />
         }
         action={
           <IconButton aria-label="settings">

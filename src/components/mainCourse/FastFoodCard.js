@@ -25,7 +25,7 @@ const FastFoodCard = () => {
      const{fastFoods:{title,slug,image,price}}=data;
 
   return (
-    <Grid container   sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
+    <Grid container className={styles.container}  sx={{marginTop:"10px" , display:"flex" , flexWrap:"wrap" }}>
 
 
     {

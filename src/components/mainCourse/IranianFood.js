@@ -1,6 +1,6 @@
 import React from 'react'
 import { useQuery } from '@apollo/client';
-import { useSelector,useDispatch } from 'react-redux';
+
 import {GET_IRANIANFOODS_MENU} from '../../graphql/querys';
 import { Grid, Card, Box, Typography, CardMedia, Button } from '@mui/material';
 import  AddShoppingCartIcon  from '@mui/icons-material/AddShoppingCart';
@@ -10,20 +10,16 @@ import AddIcon from '@mui/icons-material/Add';
 import trashIcon from '../../assest/Icon/trash.svg'
 
 import styles from '../mainCourse/IranianFood.Module.css';
-import {isInCart,quantityCount} from '../../helper/functions';
 
-//Action
-import {addItem,removeItem,increase,decrease} from '../../redux/cart/cartAction'
-import { AddReaction } from '@mui/icons-material';
+
+
+
 import AddRemoveFunction from '../shared/Add-Remove-Function';
 
 
 
 const IranianFood = () => {
   
- 
-  const dispatch=useDispatch();
-  const state=useSelector(state => state.cartState)
 
     const{loading,data,errors}=useQuery(GET_IRANIANFOODS_MENU);
    

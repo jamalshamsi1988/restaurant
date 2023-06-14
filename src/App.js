@@ -7,7 +7,7 @@ import Gallery from './components/layout/Gallery';
 import HomePage from './components/shared/HomePage';
 import SoupCard from './components/appetizer/SoupCard';
 import SaladCard from './components/appetizer/SaladCard';
-import store from '../src/redux/store';
+
 
 
 
@@ -16,7 +16,7 @@ import store from '../src/redux/store';
 function App() {
 
   return (
-   <Provider store={store}>
+   
 
   <Routes>
     <Route path="/" element={<HomePage />} />
@@ -27,8 +27,6 @@ function App() {
     <Route path="/appetizers/:slug" element={ <SaladCard/>} />
   </Routes>
 
-  </Provider>
-    
   );
 }
 
