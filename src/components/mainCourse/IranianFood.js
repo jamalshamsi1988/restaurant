@@ -3,13 +3,6 @@ import { useQuery } from "@apollo/client";
 
 import { GET_IRANIANFOODS_MENU } from "../../graphql/querys";
 import { Grid, Card, Box, Typography, CardMedia, Button } from "@mui/material";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import RemoveIcon from "@mui/icons-material/Remove";
-import AddIcon from "@mui/icons-material/Add";
-
-import trashIcon from "../../assest/Icon/trash.svg";
-
-import styles from "../mainCourse/IranianFood.Module.css";
 
 import AddRemoveFunction from "../shared/Add-Remove-Function";
 
@@ -63,7 +56,11 @@ const IranianFood = () => {
               <AddRemoveFunction />
 
               <Box
-               sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
               >
                 <Typography
                   variant="p"

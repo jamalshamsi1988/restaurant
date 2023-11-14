@@ -3,7 +3,6 @@ import { useQuery } from "@apollo/client";
 import { GET_FASTFOODS_MENU } from "../../graphql/querys";
 import { Grid, Card, Box, Typography, CardMedia, Button } from "@mui/material";
 
-import Cards from "../shared/Add-Remove-Function";
 import AddRemoveFunction from "../shared/Add-Remove-Function";
 
 import styles from "./FastFood.module.css";
