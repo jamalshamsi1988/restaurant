@@ -1,97 +1,146 @@
-import React, {  useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { Box, Button,  Container, Grid } from '@mui/material';
-import {  GET_ALLSOUPS,  GET_FASTFOODS_MENU, GET_IRANIANFOODS_MENU, GET_SALAD_MENU } from '../graphql/querys';
-import SoupCard from './appetizer/SoupCard';
-import SaladCard from './appetizer/SaladCard'
-import IranianFood from './mainCourse/IranianFood';
-import FastFoodCard from './mainCourse/FastFoodCard';
+import React, { useEffect, useState } from "react";
+import { useQuery } from "@apollo/client";
+import { Box, Button, Container, Grid } from "@mui/material";
+import {
+  GET_ALLSOUPS,
+  GET_FASTFOODS_MENU,
+  GET_IRANIANFOODS_MENU,
+  GET_SALAD_MENU,
+} from "../graphql/querys";
+import SoupCard from "./appetizer/SoupCard";
+import SaladCard from "./appetizer/SaladCard";
+import IranianFood from "./mainCourse/IranianFood";
+import FastFoodCard from "./mainCourse/FastFoodCard";
 
-import soup from '../assest/photos/soup1.jpg'
-import salad from '../assest/photos/frut-salad.jpg'
-import iranianFood from '../assest/photos/Iranian-dish.jpg'
-import fastFood from '../assest/photos/newberger.jpg'
+import soup from "../assest/photos/soup1.jpg";
+import salad from "../assest/photos/frut-salad.jpg";
+import iranianFood from "../assest/photos/Iranian-dish.jpg";
+import fastFood from "../assest/photos/newberger.jpg";
 
-
-import styles from './AllMenu.module.css';
+import styles from "./AllMenu.module.css";
 
 const AllMenu = () => {
+  const { loading, data, errors } = useQuery(GET_FASTFOODS_MENU);
 
-  const{loading,data,errors}=useQuery(GET_FASTFOODS_MENU);
+  const [active, setActive] = useState("iranianFood");
 
-  const[active,setActive]=useState("iranianFood");
+  console.log({ data });
 
-  console.log({data});
+  if (loading) return <h3>Loading ...</h3>;
+  if (errors) return <h3>Error ...</h3>;
 
-      if(loading) return  <h3>Loading ...</h3>
-      if(errors) return <h3>Error ...</h3>
-     
   return (
-    <Container maxWidth="lg" >
-      <Grid container marginLeft={3}   >
-      <Grid item className={styles.gridContainer} md={3} mt={8} sx={{display:"flex" ,flexDirection:"column"}} >
-        
- <Grid item xs={3}>
-     <Button  onClick={()=> setActive("allSoup")} 
-    sx={{backgroundImage:`url(${soup})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
-    backgroundColor:"black",
-    backgroundSize:"cover",
-    backgroundPosition:"center",
-    display:"flex",
-    justifyContent:"center",
-    color:"#ffffff",fontWeight:"700"}}> soup  </Button>
-</Grid>
+    <Container maxWidth="lg">
+      <Grid container marginLeft={3}>
+        <Grid
+          item
+          className={styles.gridContainer}
+          md={3}
+          mt={8}
+          sx={{ display: "flex", flexDirection: "column" }}
+        >
+          <Grid item xs={3}>
+            <Button
+              onClick={() => setActive("allSoup")}
+              sx={{
+                backgroundImage: `url(${soup})`,
+                backgroundRepeat: "no-repeat",
+                width: "10rem",
+                height: "8rem",
+                borderRadius: "20%",
+                backgroundColor: "black",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                display: "flex",
+                justifyContent: "center",
+                color: "#ffffff",
+                fontWeight: "700",
+              }}
+            >
+            
+              soup
+            </Button>
+          </Grid>
 
-<Grid item xs={3} >
+          <Grid item xs={3}>
+            <Button
+              onClick={() => setActive("saladMenu")}
+              sx={{
+                backgroundImage: `url(${salad})`,
+                backgroundRepeat: "no-repeat",
+                width: "10rem",
+                height: "8rem",
+                borderRadius: "20%",
+                backgroundColor: "black",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                display: "flex",
+                justifyContent: "center",
+                color: "#ffffff",
+                fontWeight: "700",
+              }}
+            >
+              salad
+            </Button>
+          </Grid>
 
-     <Button onClick={()=> setActive("saladMenu")}
-    sx={{backgroundImage:`url(${salad})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
-    backgroundColor:"black",
-    backgroundSize:"cover",
-    backgroundPosition:"center",
-    display:"flex",
-    justifyContent:"center",color:"#ffffff",fontWeight:"700"}}>salad</Button>
-</Grid>
+          <Grid item xs={3}>
+            <Button
+              onClick={() => setActive("iranianFood")}
+              sx={{
+                backgroundImage: `url(${iranianFood})`,
+                backgroundRepeat: "no-repeat",
+                width: "10rem",
+                height: "8rem",
+                borderRadius: "20%",
+                backgroundColor: "black",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                display: "flex",
+                justifyContent: "center",
+                color: "#ffffff",
+                fontWeight: "700",
+              }}
+            >
+              iranianFood
+            </Button>
+          </Grid>
 
-<Grid item xs={3}>
-
-     <Button onClick={()=> setActive("iranianFood")} 
-   sx={{backgroundImage:`url(${iranianFood})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
-    backgroundColor:"black",
-    backgroundSize:"cover",
-    backgroundPosition:"center",
-    display:"flex",
-    justifyContent:"center",color:"#ffffff",fontWeight:"700"}}>iranianFood</Button>
-</Grid>
-
-<Grid item xs={3}>
-
-     <Button onClick={()=> setActive("fastFood")}
-    sx={{backgroundImage:`url(${fastFood})`,backgroundRepeat:"no-repeat",width:"10rem" , height:"8rem", borderRadius:"20%",
-    backgroundColor:"black",
-    backgroundSize:"cover",
-    backgroundPosition:"center",
-    display:"flex",
-    justifyContent:"center",color:"#ffffff",fontWeight:"700"}}>fastFood</Button>
-</Grid> 
-
-     
+          <Grid item xs={3}>
+            <Button
+              onClick={() => setActive("fastFood")}
+              sx={{
+                backgroundImage: `url(${fastFood})`,
+                backgroundRepeat: "no-repeat",
+                width: "10rem",
+                height: "8rem",
+                borderRadius: "20%",
+                backgroundColor: "black",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                display: "flex",
+                justifyContent: "center",
+                color: "#ffffff",
+                fontWeight: "700",
+              }}
+            >
+              fastFood
+            </Button>
+          </Grid>
         </Grid>
 
         <Grid item xs={12} md={9} mt={7}>
+          {/* All Food and Soup and Salad cards  */}
 
-         
+          {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} />}
+          {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} />}
 
-      
-           {/* All Food and Soup and Salad cards  */}
-           
-      {active === "allSoup" && <SoupCard data={GET_ALLSOUPS} />}
-      {active === "saladMenu" && <SaladCard data={GET_SALAD_MENU} />}
+          {active === "fastFood" && <FastFoodCard />}
 
-      {active === "fastFood" && <FastFoodCard /> }
-    
-       {active === "iranianFood" && <IranianFood data={GET_IRANIANFOODS_MENU} />} 
-{/* {
+          {active === "iranianFood" && (
+            <IranianFood data={GET_IRANIANFOODS_MENU} />
+          )}
+          {/* {
   
       active === "iranianFood" &&
     
@@ -103,12 +152,10 @@ const AllMenu = () => {
       
       )
      }  */}
-      
         </Grid>
-        </Grid>
-      
+      </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default AllMenu
+export default AllMenu;

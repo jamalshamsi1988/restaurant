@@ -40,7 +40,7 @@ const SaladCard = () => {
 
                   <AddRemoveFunction />
 
-                  <Box sx={{display:"flex",paddingBottom:5 }} mt={3} >
+                  <Box sx={{display:"flex" , flexDirection:"column" ,alignItems:"flex-start"}} >
 
                 
                 <Typography variant="p" color="text.secondary" fontWeight="bold" marginRight={0.8} >

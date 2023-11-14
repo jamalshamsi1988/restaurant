@@ -7,7 +7,7 @@ import { GET_MAINCOURSES} from '../../graphql/querys';
 import { Link } from 'react-router-dom';
 
 
-// import { Link } from 'react-router-dom';
+
 
 const FoodCard = () => {
 
