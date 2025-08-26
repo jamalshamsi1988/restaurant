@@ -1,6 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { Provider } from "react-redux";
-
 import AboutUs from "./components/layout/aboutUs/AboutUs";
 import OnlineOrder from "./components/layout/OnlineOrder";
 import Gallery from "./components/layout/Gallery";
@@ -12,6 +10,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/HomePage" element={<HomePage />} />
       <Route path="/AboutUs" element={<AboutUs />} />
       <Route path="/Gallery" element={<Gallery />} />
       <Route path="/OnlineOrder" element={<OnlineOrder />} />
